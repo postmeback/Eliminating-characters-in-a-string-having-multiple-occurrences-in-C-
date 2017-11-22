@@ -12,7 +12,7 @@ namespace Dadagiri_Logic
     {
        public static void Main(string[] args)
        {
-           /// user input
+            ///user input
            string a = Console.ReadLine();
 
            /// good practise
@@ -25,15 +25,27 @@ namespace Dadagiri_Logic
                    /// avoiding the spaces
                    if (x != " ")
                    {
-                       if (a.Count(p => p.ToString() == x) > 1)
+                       if ((a.Count(p => p.ToString() == x) > 1))
                        {
                            a = a.Replace(x, string.Empty);
+                       }
+                       else 
+                       {
+                           string lower_x = x.ToLower(System.Globalization.CultureInfo.CurrentCulture);
+
+                           if (a.Contains(lower_x))
+                           {
+                               a = a.Replace(x, string.Empty).Replace(lower_x,string.Empty);
+                           }
                        }
                    }
                }
                Console.WriteLine(a);
                Console.ReadKey();
            }
+          ///  ends here
+
+
        }
     }
 }
